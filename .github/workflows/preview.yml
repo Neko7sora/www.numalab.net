@@ -28,7 +28,6 @@ jobs:
             keep_history: true #falseにしたら、コミット履歴吹っ飛ぶよ...(仕組みを理解したうえでfalseにして....)
             token: ${{ secrets.GITHUB_TOKEN }}
 
-
   basic-test:
     runs-on: ubuntu-latest
     needs: [basic-publish]
