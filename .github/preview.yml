@@ -6,10 +6,15 @@ on:
       - gh-pages
 
 jobs:
-  jekyll:
+  basic-publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - uses: ruby/setup-ruby@v1
+         with:
+          ruby-version: ...
+          bundler-cache: true
 
       ## バンドラーのRuby バージョンの要件が競合するのを防ぐ
       - name: remove files
@@ -22,3 +27,12 @@ jobs:
             # target_path: v1.0
             keep_history: true #falseにしたら、コミット履歴吹っ飛ぶよ...(仕組みを理解したうえでfalseにして....)
             token: ${{ secrets.GITHUB_TOKEN }}
+
+
+  basic-test:
+    runs-on: ubuntu-latest
+    needs: [basic-publish]
+    steps:
+      - name: echo
+        run: |
+          echo test
