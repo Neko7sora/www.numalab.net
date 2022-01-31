@@ -12,3 +12,12 @@ vendor
 
 .DS_Store
 Thumbs.db
+
+node_modules
+.env
+
+# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+/.yarn/*
+install-state.gz
+
+Gemfile.lock

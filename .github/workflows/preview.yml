@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.1.0
           bundler-cache: true
-          
+
       - name: remove files
-       ## バンドラーのRuby バージョンの要件が競合するのを防ぐ
+        ## バンドラーのRuby バージョンの要件が競合するのを防ぐ
         run: |
           rm -r -f -v  Gemfile.lock
 
